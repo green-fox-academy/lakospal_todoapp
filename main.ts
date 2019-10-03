@@ -1,5 +1,7 @@
 'use strict';
 
+import { writeFile } from "fs";
+
 
 const fs=require('fs');
 let printusage=  fs.readFileSync('./printusage.txt', 'utf-8');
@@ -28,6 +30,7 @@ if(args[2]=="-l" && todolist.length==1 ){
   console.log(i+1+" - "+todolist[i])}
 }
 //------------------------------------------------------------------------------------------------
-
-
-
+if (args[2]=="-a" && args[3]=="Feed" && args[4]=="the" && args[5]=="monkey"){
+  fs.appendFileSync("./todolist.txt","\nFeed the monkey","utf-8");
+  console.log("Feed the monkey task added");
+}
